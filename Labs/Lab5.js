@@ -139,20 +139,22 @@ const Lab5 = (app) => {
     const newTodo = {
       ...req.body,
       id: new Date().getTime(),
+      title: "New Task1",
+      completed: false,
     };
     todos.push(newTodo);
     res.json(newTodo);
   });
 
-  // app.get("/a5/todos/create", (req, res) => {
-  //   const newTodo = {
-  //     id: new Date().getTime(),
-  //     title: "New Task",
-  //     completed: false,
-  //   };
-  //   todos.push(newTodo);
-  //   res.json(todos);
-  // });
+  app.get("/a5/todos/create", (req, res) => {
+    const newTodo = {
+      id: new Date().getTime(),
+      title: "New Task2",
+      completed: false,
+    };
+    todos.push(newTodo);
+    res.json(todos);
+  });
 
   app.get("/a5/todos/:id", (req, res) => {
     const { id } = req.params;
@@ -169,7 +171,8 @@ const Lab5 = (app) => {
       return;
     }
     todos.splice(todos.indexOf(todo), 1);
-    res.sendStatus(200);
+    // res.sendStatus(200);
+    res.json(todos);
   });
 
   // app.get("/a5/todos/:id/delete", (req, res) => {
