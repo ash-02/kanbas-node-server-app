@@ -21,6 +21,8 @@ const todos = [
   { id: 4, title: "Task 4", completed: true },
 ];
 
+const newTaskCounter = 1;
+
 const Lab5 = (app) => {
 
   app.get("/a5/welcome", (req, res) => {
@@ -149,10 +151,11 @@ const Lab5 = (app) => {
   app.get("/a5/todos/create", (req, res) => {
     const newTodo = {
       id: new Date().getTime(),
-      title: "New Task2",
+      title: "New Task" + newTaskCounter,
       completed: false,
     };
     todos.push(newTodo);
+    newTaskCounter++;
     res.json(todos);
   });
 
