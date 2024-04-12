@@ -21,6 +21,8 @@ mongoose.connect(CONNECTION_STRING, { dbName: DB_NAME });
 
 const app = express();
 
+const secret = process.env.SESSION_SECRET;
+
 app.use(
   cors({
     credentials: true,
@@ -28,7 +30,7 @@ app.use(
   })
 );
 const sessionOptions = {
-  secret: process.env.SESSION_SECRET,
+  secret: secret,
   resave: false,
   saveUninitialized: false,
 };
