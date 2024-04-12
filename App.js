@@ -30,7 +30,7 @@ app.use(
   })
 );
 const sessionOptions = {
-  secret: secret,
+  secret: "secret",
   resave: false,
   saveUninitialized: false,
 };
