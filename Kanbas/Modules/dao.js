@@ -2,9 +2,7 @@ import model from "./model.js";
 
 export const createModule = (courseId, module) => {
     delete module._id;
-    console.log(courseId);
     const newModule = { ...module, course: courseId };
-    console.log(newModule);
     return model.create(newModule);
 }
 

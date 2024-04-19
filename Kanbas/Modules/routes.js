@@ -34,7 +34,6 @@ export default function ModuleRoutes(app) {
   const findModuleforCourse = async (req, res) => {
     const { courseId } = req.params;
     const modules = await dao.findModuleforCourse(courseId);
-    console.log(modules);
     res.json(modules);
   }
 
